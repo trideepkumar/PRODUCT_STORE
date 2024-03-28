@@ -1,9 +1,8 @@
-import React, { useState } from "react"; // Import useState
+import React, { useState } from "react"; 
 
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  // State to manage menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,10 +21,9 @@ export default function Header() {
           </Link>
         </div>
         <div className="sm:hidden">
-          {/* Hamburger menu icon */}
           <button
             className="text-white focus:outline-none"
-            onClick={toggleMenu} // Toggle menu on click
+            onClick={toggleMenu} 
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -42,9 +40,8 @@ export default function Header() {
               />
             </svg>
           </button>
-          {/* Collapsible menu */}
           {isMenuOpen && (
-            <div className="absolute top-16 right-0 bg-gray-900 w-40 p-4">
+            <div className="absolute top-16 right-0 w-40 rounded-lg border border-double-2 p-4" style={{background:"#202120"}}>
               <Link to="/" className="block text-white mb-2">
                 Products
               </Link>
