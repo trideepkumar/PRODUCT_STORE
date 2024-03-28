@@ -88,7 +88,7 @@ export default function ProductList() {
           products.map((product) => (
             <div
               key={product.id}
-              className="border w-80 m-2 rounded-lg border-slate-700 p-5 hover:border-white"
+              className="border w-80 m-2 rounded-lg border-slate-700 p-5  hover:border-white"
             >
               <Link to={`/products/${product.id}`}>
                 <div className="relative flex flex-col transition duration-300 ease-in-out transform hover:scale-105 text-gray-700 bg-gray-100 shadow-md bg-clip-border rounded-xl">
