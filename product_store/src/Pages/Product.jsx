@@ -11,7 +11,6 @@ export default function Product() {
   const params = useParams();
 
   const [product, setProduct] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   console.log(product);
 
@@ -95,6 +94,7 @@ export default function Product() {
                 </p>
               </div>
               <div>
+                <p className="p-3 font-bold underline">DESCRIPTION</p>
                 <p
                   className="p-3  text-white  text-pretty"
                   style={{
@@ -104,7 +104,7 @@ export default function Product() {
                 >
                   {product.description}
                 </p>
-              </div>
+              </div>    
             </div>
 
             <div
