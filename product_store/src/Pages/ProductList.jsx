@@ -94,7 +94,7 @@ export default function ProductList() {
               <Link to={`/products/${product.id}`} key={product.id}>
                 <div className="relative flex flex-col transition duration-300 ease-in-out transform hover:scale-105 text-gray-700 bg-gray-100 shadow-md bg-clip-border rounded-xl">
                   <div className="relative mx-2 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-36">
-                    {JSON.parse(product.images[0]).map((imageUrl, index) => (
+                    {JSON.parse(product.images).map((imageUrl, index) => (
                       <img
                         key={index}
                         src={imageUrl}
