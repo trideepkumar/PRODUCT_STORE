@@ -104,7 +104,7 @@ export default function ProductList() {
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-2">
                       <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                        {product.name}
+                        {product.title}
                       </p>
                       <p className="block font-sans font-bold text-base antialiased  leading-relaxed text-blue-gray-900">
                         ${product.price}
