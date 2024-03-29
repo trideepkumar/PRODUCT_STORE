@@ -42,26 +42,26 @@ export default function Header() {
           </button>
           {isMenuOpen && (
             <div className="absolute top-16 right-0 w-40 rounded-lg border border-double-2 p-4" style={{background:"#202120"}}>
-              <Link to="/" className="block text-white mb-2">
-                Products
+              <Link to="/" className="block text-white mb-2 ">
+              <p className="hover:text-gray-900">Products</p>
               </Link>
-              <Link to="/category" className="block text-white mb-2">
+              <Link to="/category" className="block text-white mb-2 hover:text-gray-900">
                 Categories
               </Link>
-              <Link to="/users" className="block text-white">
+              <Link to="/users" className="block text-white hover:text-gray-900">
                 Users
               </Link>
             </div>
           )}
         </div>
         <div className="hidden sm:flex justify-between gap-4">
-          <Link to="/" className="text-white transition duration-300">
+          <Link to="/" className="text-white transition duration-300 ease-in-out hover:text-gray-600">
             Products
           </Link>
-          <Link to="/category" className="text-white transition duration-300">
+          <Link to="/category" className="text-white transition duration-300 ease-in-out hover:text-gray-600">
             Categories
           </Link>
-          <Link to="/users" className="text-white transition duration-300">
+          <Link to="/users" className="text-white transition duration-300 ease-in-out hover:text-gray-600">
             Users
           </Link>
         </div>

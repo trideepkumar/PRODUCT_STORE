@@ -5,12 +5,16 @@ import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
 import { useParams } from "react-router-dom";
+import Spinner from "../components/Placeholders/Spinner";
+
+
 
 export default function Product() {
   SwiperCore.use([Navigation]);
   const params = useParams();
 
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   console.log(product);
 
@@ -18,6 +22,7 @@ export default function Product() {
     try {
       const res = await axiosInstance.get(`/products/${params.id}`);
       setProduct(res.data);
+      setLoading(false); 
     } catch (error) {
       console.error("Error fetching product:", error);
     }
@@ -29,8 +34,11 @@ export default function Product() {
 
   return (
     <>
-      {product && (
+      {loading ? (
+       <Spinner/>
+      ) : product ? (
         <div className="lg:flex md:flex sm:grid ">
+          {/* Product Images */}
           <Swiper
             navigation
             style={{
@@ -104,17 +112,18 @@ export default function Product() {
                 >
                   {product.description}
                 </p>
-              </div>    
+              </div>
             </div>
-
             <div
               className="border rounded-lg w-78 my-3 text-white p-1 shadow-lg  hover:border-gray-500"
               style={{ background: "#242424" }}
             >
-             <button className="w-full m-2  hover:text-gray-400">ADD TO CART</button>
+              <button className="w-full m-2  hover:text-gray-400">ADD TO CART</button>
             </div>
           </div>
         </div>
+      ) : (
+        <div>No product found</div>
       )}
     </>
   );
