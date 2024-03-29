@@ -48,8 +48,7 @@ export default function ProductList() {
   return (
     <div className="flex flex-col md:flex-row">
       <div className="border border-slate-700 rounded-md p-2 m-1 lg:mt-2 border-b-2 shadow-lg sm:border-r-2 sm:w-full md:w-1/4 md:min-h-screen">
-        <div className="p-3 flex items-center gap-2">     
-        </div>
+        <div className="p-3 flex items-center gap-2"></div>
         <div className="flex flex-col items-center gap-3 mx-4">
           <label className="text-white font-bold font">Select Category</label>
           <select
@@ -95,11 +94,14 @@ export default function ProductList() {
               <Link to={`/products/${product.id}`} key={product.id}>
                 <div className="relative flex flex-col transition duration-300 ease-in-out transform hover:scale-105 text-gray-700 bg-gray-100 shadow-md bg-clip-border rounded-xl">
                   <div className="relative mx-2 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-36">
-                    <img
-                      src={product.images[0]}
-                      alt="card-image"
-                      className="object-cover w-full h-full"
-                    />
+                    {JSON.parse(product.images[0]).map((imageUrl, index) => (
+                      <img
+                        key={index}
+                        src={imageUrl}
+                        alt={`card-image-${index}`}
+                        className="object-cover w-full h-full"
+                      />
+                    ))}
                   </div>
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-2">

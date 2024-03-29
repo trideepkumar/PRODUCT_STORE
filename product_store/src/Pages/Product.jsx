@@ -7,8 +7,6 @@ import "swiper/css/bundle";
 import { useParams } from "react-router-dom";
 import Spinner from "../components/Placeholders/Spinner";
 
-
-
 export default function Product() {
   SwiperCore.use([Navigation]);
   const params = useParams();
@@ -22,7 +20,7 @@ export default function Product() {
     try {
       const res = await axiosInstance.get(`/products/${params.id}`);
       setProduct(res.data);
-      setLoading(false); 
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching product:", error);
     }
@@ -35,7 +33,7 @@ export default function Product() {
   return (
     <>
       {loading ? (
-       <Spinner/>
+        <Spinner />
       ) : product ? (
         <div className="lg:flex md:flex sm:grid ">
           {/* Product Images */}
@@ -52,13 +50,15 @@ export default function Product() {
           >
             {product.images.map((url, index) => (
               <SwiperSlide key={index} className="">
-                <div className="h-[500px] relative ">
-                  <img
-                    src={url}
-                    alt={`Image ${index}`}
-                    className="w-full h-full  object-contain rounded-lg"
-                  />
-                </div>
+                {JSON.parse(product.images[0]).map((imageUrl, index) => (
+                  <div key={index} className="h-[500px] relative">
+                    <img
+                      src={imageUrl}
+                      alt={`Image ${index}`}
+                      className="w-full h-full object-contain rounded-lg"
+                    />
+                  </div>
+                ))}
               </SwiperSlide>
             ))}
           </Swiper>
@@ -118,7 +118,9 @@ export default function Product() {
               className="border rounded-lg w-78 my-3 text-white p-1 shadow-lg  hover:border-gray-500"
               style={{ background: "#242424" }}
             >
-              <button className="w-full m-2  hover:text-gray-400">ADD TO CART</button>
+              <button className="w-full m-2  hover:text-gray-400">
+                ADD TO CART
+              </button>
             </div>
           </div>
         </div>
