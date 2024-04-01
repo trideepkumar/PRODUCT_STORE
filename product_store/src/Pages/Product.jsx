@@ -50,15 +50,13 @@ export default function Product() {
           >
             {product.images.map((url, index) => (
               <SwiperSlide key={index} className="">
-                {JSON.parse(product.images[0]).map((imageUrl, index) => (
-                  <div key={index} className="h-[500px] relative">
-                    <img
-                      src={imageUrl}
-                      alt={`Image ${index}`}
-                      className="w-full h-full object-contain rounded-lg"
-                    />
-                  </div>
-                ))}
+                <div key={index} className="h-[500px] relative border rounded-lg ">
+                  <img
+                    src={url}
+                    alt={`Image ${index}`}
+                    className="w-full h-full object-contain rounded-lg"
+                  />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

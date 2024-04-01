@@ -89,16 +89,16 @@ export default function ProductList() {
           products.map((product) => (
             <div
               key={product.id}
-              className="border w-80 m-2 rounded-lg border-slate-600 p-5 h-[370px]  hover:border-white lg:items-center"
+              className="border w-80 m-2 rounded-lg border-slate-600 p-5 h-[420px]  hover:border-white lg:items-center"
             >
               <Link to={`/products/${product.id}`} key={product.id}>
                 <div className="relative flex flex-col transition duration-300 ease-in-out transform hover:scale-105 text-gray-700 bg-gray-100 shadow-md bg-clip-border rounded-xl">
                   <div className="relative mx-2 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-36">
-                    {JSON.parse(product.images).map((imageUrl, index) => (
+                    {product.images.map((imageUrl, index) => (
                       <img
                         key={index}
                         src={imageUrl}
-                        alt={`card-image-${index}`}
+                        alt={`card-image`}
                         className="object-cover w-full h-full"
                       />
                     ))}
